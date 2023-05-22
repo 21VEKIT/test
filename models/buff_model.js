@@ -25,8 +25,12 @@ class Buff_model {
     }
 
     async fetchPercentMain() {
-        const [result] = await pool.execute('SELECT * FROM `options` WHERE name = "percent"')
-        return result[0].value
+        const [result] = await pool.execute('SELECT * FROM `options` WHERE name = "percent" OR name = "max" OR name = "min"')
+        return {
+            percent: result.find(item => item.name === 'percent').value,
+            max: result.find(item => item.name === 'max').value,
+            min: result.find(item => item.name === 'min').value
+        }
     }
 
     async fetchPercent2() {

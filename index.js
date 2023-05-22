@@ -20,7 +20,7 @@ setInterval(() => {
                     }).then(response_good_item_detail => {
                         model_buff.fetchPercentMain().then(percent_1 => {
 
-                            const info_good = findNeedItem(response_good_item_detail.data.data.items.slice(0, 3), percent_1)
+                            const info_good = findNeedItem(response_good_item_detail.data.data.items.slice(0, 3), percent_1.percent)
                             if (info_good) {
                                 model_buff.fetchActiveGood(info_good.id).then(res => {
 
@@ -44,7 +44,7 @@ setInterval(() => {
                                                     const percent_result = (max - parseFloat(info_good.min)) / info_good.min * 100
 
 
-                                                    if (percent_result >= percent_1) {
+                                                    if (percent_result >= percent_1.percent) {
 
                                                         const message_info = `
                                 ${info_good.info.icon_url}\n\nПредмет: <a href="https://buff.163.com/goods/${good_id}">${response_good_item_detail.data.data.goods_infos[good_id]['market_hash_name']}</a>\nЦена покупки: ${info_good.min}Y\nПрофит: ${percent_result}%\nТенденция: ${trend_value}\nИзнос: ${info_good.paintwear}\nЦена продажи: ${info_good.max}(${max})
