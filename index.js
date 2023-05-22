@@ -53,7 +53,7 @@ setInterval(() => {
                                                     if (percent_result >= percent_1.percent) {
 
                                                         const message_info = `
-                                ${info_good.info.icon_url}\n\nПредмет: <a href="https://buff.163.com/goods/${good_id}">${response_good_item_detail.data.data.goods_infos[good_id]['market_hash_name']}</a>\nЦена покупки: ${info_good.min}Y\nЦена продажи: ${parseFloat(info_good.max).toFixed(2)}(${max})\nПрофит: ${percent_result.toFixed(2)}%\nТенденция: ${parseFloat(trend_value).toFixed(2)}\nИзнос: ${info_good.paintwear}
+                                ${info_good.info.icon_url}\n\nПредмет: <a href="https://buff.163.com/goods/${good_id}">${response_good_item_detail.data.data.goods_infos[good_id]['market_hash_name']}</a>\nЦена покупки: ${info_good.min}Y\nЦена продажи: ${parseFloat(info_good.max).toFixed(2)}(${max.toFixed(2)})\nПрофит: ${percent_result.toFixed(2)}%\nТенденция: ${parseFloat(trend_value).toFixed(2)}\nИзнос: ${info_good.paintwear}
                             `
 
                                                         axios({
